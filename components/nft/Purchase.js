@@ -18,7 +18,7 @@ const MakeOffer = ({ isListed, selectedNft, listings, marketPlaceModule }) => {
     if (!listings || isListed === 'false') return
     ;(async () => {
       setSelectedMarketNft(
-        listings.find((marketNft) => marketNft.asset?.isListed === selectedNft.isListed)
+        listings.find((marketNft) => marketNft.asset?.id === selectedNft)
       )
     })()
   }, [selectedNft, listings, isListed])
@@ -42,7 +42,7 @@ const MakeOffer = ({ isListed, selectedNft, listings, marketPlaceModule }) => {
     quantityDesired = 1,
     module = marketPlaceModule
   ) => {
-    console.log(listingId, quantityDesired, module, 'david')
+    console.log(listingId, quantityDesired, module, 'Sahil')
     
     await module
       .buyoutDirectListing({

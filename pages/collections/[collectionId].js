@@ -14,8 +14,8 @@ const style = {
   bannerImageContainer: `h-[20vh] w-screen overflow-hidden flex justify-center items-center`,
   bannerImage: `w-full object-cover`,
   infoContainer: `w-screen px-4`,
-  midRow: `w-full flex justify-center text-white`,
-  endRow: `w-full flex justify-end text-white`,
+  midRow: `w-full flex justify-center text-red`,
+  endRow: `w-full flex justify-end text-red`,
   profileImg: `w-40 h-40 object-cover rounded-full border-2 border-[#202225] mt-[-4rem]`,
   socialIconsContainer: `flex text-3xl mb-[-2rem]`,
   socialIconsWrapper: `w-44`,
@@ -29,7 +29,7 @@ const style = {
   statValue: `text-3xl font-bold w-full flex items-center justify-center`,
   ethLogo: `h-6 mr-2`,
   statName: `text-lg w-full text-center mt-1`,
-  description: `text-[#8a939b] text-xl w-max-1/4 flex-wrap mt-4`,
+  description: `text-[#88939d] text-xl w-max-1/4 flex-wrap mt-4`,
 }
 
 const Collection = () => {
@@ -40,19 +40,17 @@ const Collection = () => {
   const [nfts, setNfts] = useState([])
   const [listings, setListings] = useState([])
 
-  //
 
   const nftModule = useMemo(() => {
     if (!provider) return
 
     const sdk = new ThirdwebSDK(
       provider.getSigner()
-  
     )
-    return sdk.getNFTModule(0x4bD794bF6248aDEC62abBc531FfA0bB79aa54903)
+    return sdk.getNFTModule(collectionId)
   }, [provider])
 
-  // get all NFTs in the collection
+  
   useEffect(() => {
     if (!nftModule) return
     ;(async () => {
@@ -73,7 +71,6 @@ const Collection = () => {
     )
   }, [provider])
 
-  // get all listings in the collection
   useEffect(() => {
     if (!marketPlaceModule) return
     ;(async () => {
@@ -98,7 +95,6 @@ const Collection = () => {
 
     console.log(collectionData, '🔥')
 
-    // the query returns 1 object inside of an array
     await setCollection(collectionData[0])
   }
 
@@ -181,7 +177,7 @@ const Collection = () => {
             <div className={style.collectionStat}>
               <div className={style.statValue}>
                 <img
-                  src="https://storage.opensea.io/files/6f8e2979d428180222796ff4a33ab929.svg"
+                  src="https://www.svgviewer.dev/s/16261/store-alt"
                   alt="eth"
                   className={style.ethLogo}
                 />
@@ -192,7 +188,7 @@ const Collection = () => {
             <div className={style.collectionStat}>
               <div className={style.statValue}>
                 <img
-                  src="https://storage.opensea.io/files/6f8e2979d428180222796ff4a33ab929.svg"
+                  src="https://www.svgviewer.dev/s/16261/store-alt"
                   alt="eth"
                   className={style.ethLogo}
                 />

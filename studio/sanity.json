@@ -1,10 +1,10 @@
 {
   "root": true,
   "project": {
-    "name": "mynft"
+    "name": "nft-market"
   },
   "api": {
-    "projectId": "hmg5knlu",
+    "projectId": "ublzw1o4",
     "dataset": "production"
   },
   "plugins": [

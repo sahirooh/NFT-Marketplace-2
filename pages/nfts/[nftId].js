@@ -27,11 +27,10 @@ const Nft = () => {
 
     const sdk = new ThirdwebSDK(
       provider.getSigner()
-)
+    )
     return sdk.getNFTModule('0x4bD794bF6248aDEC62abBc531FfA0bB79aa54903')
   }, [provider])
 
-  // get all NFTs in the collection
   useEffect(() => {
     if (!nftModule) return
     ;(async () => {
